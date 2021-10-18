@@ -24,6 +24,7 @@
     "typeorm": "ts-node ./node_modules/typeorm/cli.js",
     "typeorm:drop": "ts-node ./node_modules/typeorm/cli.js schema:drop",
     "typeorm:sync": "ts-node ./node_modules/typeorm/cli.js schema:sync",
-    "dev": "nodemon --exec ts-node src/index.ts"
+    "dev": "nodemon --exec ts-node src/index.ts",
+    "build": "tsc"
   }
 }

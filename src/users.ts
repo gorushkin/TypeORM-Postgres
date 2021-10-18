@@ -10,7 +10,7 @@ const addUser = async (req, res) => {
     const user = User.create({ name, email, role });
     const errors = await validate(user);
 
-    if (errors) throw errors;
+    if (errors.length > 0) throw errors;
     await user.save();
     return res.status(201).json(user);
   } catch (error) {
@@ -22,6 +22,7 @@ const addUser = async (req, res) => {
 const getUsers = async (req, res) => {
   try {
     const users = await User.find({ relations: ['posts'] });
+    console.log('users: ', users);
     return res.status(201).json(users);
   } catch (error) {
     console.log(error);
